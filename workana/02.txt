@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+    <title>Webinar Workana</title>
+    
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 90%;
+            max-width: 600px;
+            background-color: #0056b3;
+            color: white;
+           max-width: 600px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        .logo img {
+            max-width: 300px;
+        }
+        
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #ffeb90;
+            color: #0073e6;
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .cta-button:hover {
+            background-color: #ffffff;
+        }
+        .saludos{
+            text-align: center;
+        }
+        .imagem{
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+        <img src="images/mono-logo.svg" alt="Workana">
+    </div>
+        <h1>¡Hola!</h1>        
+        <p>¿Has oído hablar del seminario web "Descubre cómo ganar dinero trabajando remoto y en Workana"?</p>
+        <p>Este es un webinar exclusivo para Talentos Independientes que desean mejorar sus habilidades y construir una carrera remota o en Workana.</p>
+        <p>La capacitación online incluye contenido, consejos prácticos y exclusivos sobre cómo conseguir tu primer trabajo remoto, cómo crear un perfil exitoso y cómo diferenciarte de tu competencia.</p>
+        <p>No pierdas esta oportunidad única y regístrate ahora mismo en nuestro próximo webinar.</p>
+        <img class="imagem" src="images/03.png" alt="Workana" width="100%">
+        <a href="#" class="cta-button">Regístrate gratis en el próximo webinar</a>
+        <p class="saludos">¡Te esperamos allí!</p>
+        <p class="saludos">Saludos,<br>Equipo Workana</p>
+    </div>
+</body>
+</html>
