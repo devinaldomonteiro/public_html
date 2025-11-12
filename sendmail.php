@@ -29,14 +29,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';      // servidor SMTP do Gmail
         $mail->SMTPAuth = true;
-        $mail->Username = 'devinaldomonteiro@gmail.com'; // seu e-mail
-        $mail->Password = '142536';      // senha de app do Gmail (não a senha normal!)
+        $mail->Username = 'inaldomonteiroti@gmail.com'; // seu e-mail
+        $mail->Password = '123Mudar!';      // senha de app do Gmail (não a senha normal!)
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
 
         // Remetente e destinatário
         $mail->setFrom($email, $name);
-        $mail->addAddress('devinaldomonteiro@gmail.com', 'Site Contato'); // para onde será enviado
+        $mail->addAddress('inaldomonteiroti@gmail.com', 'Site Contato'); // para onde será enviado
 
         // Conteúdo
         $mail->isHTML(false);
