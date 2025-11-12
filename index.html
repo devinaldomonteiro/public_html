@@ -212,7 +212,7 @@
                 Projetos
               </a>
               <a
-                href="#contact"
+                href="#contact-form"
                 class="text-sm font-medium decoration-purple-600 decoration-2 underline-offset-8 hover:text-black hover:underline dark:decoration-purple-400 dark:hover:text-white"
               >
                 Contato
@@ -401,7 +401,7 @@
 
           <!-- Contact -->
           <div
-            id="contact"
+            id="contact-form"
             class="relative col-span-1 flex flex-col overflow-hidden rounded-xl bg-zinc-100 px-12 py-20 md:col-span-12 dark:bg-zinc-900"
           >
             <div
@@ -464,8 +464,44 @@
                   <span>Enviar Mensagem </span>
                 </button>
               </form>
+              <p id="form-status" class="mt-4 text-sm font-medium" style="text-align: center;"></p>
             </div>
           </div>
+
+          <!-- Mensagem de status -->
+
+
+<script>
+document.getElementById("contact-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const status = document.getElementById("form-status");
+  status.textContent = "Enviando...";
+  status.className = "mt-4 text-sm font-medium text-zinc-600";
+
+  const formData = new FormData(e.target);
+
+  try {
+    const response = await fetch("sendmail.php", {
+      method: "POST",
+      body: formData,
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      status.textContent = "✅ Mensagem enviada com sucesso!";
+      status.className = "mt-4 text-sm font-medium text-green-600";
+      e.target.reset();
+    } else {
+      status.textContent = "❌ Erro ao enviar mensagem. Tente novamente.";
+      status.className = "mt-4 text-sm font-medium text-red-600";
+    }
+  } catch (error) {
+    status.textContent = "⚠️ Falha de conexão. Tente novamente.";
+    status.className = "mt-4 text-sm font-medium text-red-600";
+  }
+});
+</script>
           <!-- END Contact -->
 
           <!-- Footer -->
