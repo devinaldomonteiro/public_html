@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = trim($_POST["email"] ?? "");
     $message = trim($_POST["message"] ?? "");
 
-    echo ("$name $email $message");
+    echo ("$name, $email, $message");
 
     // Validação básica
     if (empty($name) || empty($email) || empty($message) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
