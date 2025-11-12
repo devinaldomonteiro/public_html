@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         // Remetente e destinatário
         $mail->setFrom($email, $name);
-        $mail->addAddress('seuemail@gmail.com', 'Site Contato'); // para onde será enviado
+        $mail->addAddress('inaldomonteiroti@gmail.com', 'Site Contato'); // para onde será enviado
 
         // Conteúdo
         $mail->isHTML(false);
