@@ -476,37 +476,6 @@
           <!-- Mensagem de status -->
 
 
-<script>
-document.getElementById("contact-form").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const status = document.getElementById("form-status");
-  status.textContent = "Enviando...";
-  status.className = "mt-4 text-sm font-medium text-zinc-600";
-
-  const formData = new FormData(e.target);
-
-  try {
-    const response = await fetch("sendmail.php", {
-      method: "POST",
-      body: formData,
-    });
-
-    const result = await response.json();
-
-    if (result.success) {
-      status.textContent = "✅ Mensagem enviada com sucesso!";
-      status.className = "mt-4 text-sm font-medium text-green-600";
-      e.target.reset();
-    } else {
-      status.textContent = "❌ Erro ao enviar mensagem. Tente novamente.";
-      status.className = "mt-4 text-sm font-medium text-red-600";
-    }
-  } catch (error) {
-    status.textContent = "⚠️ Falha de conexão. Tente novamente.";
-    status.className = "mt-4 text-sm font-medium text-red-600";
-  }
-});
-</script>
           <!-- END Contact -->
 
           <!-- Footer -->
