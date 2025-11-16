@@ -15,4 +15,20 @@ class AuthController extends Controller
     {
         echo 'logout';
     }
+    public function loginSubmit(Request $request)
+    {
+        //form validation
+        $request->validate(
+            [
+                'text_username' => 'required',
+                'text_password' => 'required'
+            ]
+        );
+
+        $username = $request->input('text_username');
+        
+        $password = $request->input('text_password');
+
+        echo "ok";
+    }
 }
