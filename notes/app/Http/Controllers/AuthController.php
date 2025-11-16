@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
@@ -19,9 +20,15 @@ class AuthController extends Controller
     {
         //form validation
         $request->validate(
+            //rules
             [
-                'text_username' => 'required',
-                'text_password' => 'required'
+                'text_username' => 'required|email',
+                'text_password' => 'required|'
+            ],
+            [
+                'text_username.required' => 'O valor é obrigatório',
+                'text_username.email' => 'Username deve ser um e-mail válido',
+                'text_password.required' => 'O password é obrigatório'
             ]
         );
 
@@ -29,6 +36,12 @@ class AuthController extends Controller
         
         $password = $request->input('text_password');
 
-        echo "ok";
+        //test database
+        try{
+            DB::connection()->getPdo();
+            echo "Connection OK";
+        }catch(\PDOException $e){
+            echo "Connection".$e->getMessage();
+        }
     }
 }
