@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -43,5 +44,27 @@ class AuthController extends Controller
         }catch(\PDOException $e){
             echo "Connection".$e->getMessage();
         }
+
+        // get all the users from the database
+        // $users = User::all()->toArray();
+        // echo "<pre>";
+        // print_r($users);
+
+        // as an object instance of the model's class
+        // $userModel = new User();
+        // $users = $userModel->all()->toArray();
+        // echo "<pre>";
+        // print_r($users);
+
+        //check if user exists
+        $user = User::where('username', $username)
+                ->where('deleted_at', null)
+                ->first();
+        if(!$user){
+            return redirect()->back()->withInput()->with('loginError', 'Username ou Password incorreto.');
+        }
+
+        echo "<pre>";
+        print_r($user);        
     }
 }
