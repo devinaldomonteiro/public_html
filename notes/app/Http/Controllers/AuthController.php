@@ -45,27 +45,16 @@ class AuthController extends Controller
             echo "Connection".$e->getMessage();
         }
 
-        // get all the users from the database
-        // $users = User::all()->toArray();
-        // echo "<pre>";
-        // print_r($users);
-
-        // as an object instance of the model's class
-        // $userModel = new User();
-        // $users = $userModel->all()->toArray();
-        // echo "<pre>";
-        // print_r($users);
-
-        //check if user exists
         $user = User::where('username', $username)
-                ->where('deleted_at', null)
-                ->first();
+                    ->where('deleted_at',NULL)
+                    ->first();
+
         if(!$user){
-            return redirect()->back()->withInput()->with('loginError', 'Username ou Password incorreto.');
+            return redirect()->back()->withInput()->with('loginError', 'Nome de usuario ou login incorretos');
         }
-        //check o password
-        if(!password_verify($password, $user->password)){
-            return redirect()->back()->withInput()->with('loginError', 'Username ou Password incorreto.');  
+
+         if(!password_verify($password, $user->password)){
+            return redirect()->back()->withInput()->with('loginError', 'Nome de usuario ou login incorretos');
         }
 
         //update last login
@@ -74,14 +63,13 @@ class AuthController extends Controller
 
         // login user
         session([
-            'user' => [
-                'id' => $user->id,
-                'username' => $user->username
+            'user'=> [
+                'id'=> $user->id,
+                'username'=> $user->username
             ]
-
         ]);
 
-        echo "Login com sucesso !";
-        print_r($user);        
+        return view('home');
+         
     }
 }
